@@ -1,0 +1,21 @@
+body{
+  --img-height: 140px;
+}
+
+.profil-pic{
+  height: var(--img-height);
+  width: var(--img-height);
+}
+
+.user{
+  width: 300px;
+}
+
+.hr{
+  width: 20%;
+  height: 5px;
+}
+
+.rounded-custom{
+  border-radius: 10px;
+}
