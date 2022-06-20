@@ -1,25 +1,30 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import User from './components/user/User';
+import { useEffect, useState } from 'react'
+import './App.css'
+import User from './components/user/User'
+import Error from './components/Error/Error'
 import { userProps } from './interface/interface'
 
 
 export default function App(): JSX.Element {
 
   const [users, setUsers] = useState<userProps[]>([])
+  const [fetchError, setFetchError] = useState<boolean>(false)
+  const [errorContent, setErrorContent] = useState<string>('')
 
-  // Get users data from API : https://dummyjson.com/users
+  // Get users data from API: https://dummyjson.com/users
   const getUsersDataFromApi = () => {
     fetch('https://dummyjson.com/users')
     .then(res => {
       if(res.ok){
+        setFetchError(false)
         return res.json()
       } else {
         console.log('une erreur est survenue')
+        setFetchError(true)
       }
     })
     .then(res => setUsers(res.users))
-    .catch(error => console.log(error))
+    .catch(error => setErrorContent(error))
   }
   
   useEffect(() => {
@@ -37,7 +42,8 @@ export default function App(): JSX.Element {
             </li>)
           })
         }
+        {fetchError ? <Error error={errorContent}/> : ''}
       </ul>
     </div>
-  );
+  )
 }
