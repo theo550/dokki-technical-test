@@ -18,7 +18,7 @@ export default function User({ image, firstName, lastName, maidenName, username,
       <div className="my-0">
         <p className='my-0'>{customiseDate(birthDate)}</p>
         <p className='my-0'>{gender}</p>
-        <p className='my-0'>{height}cm / {weight}kg</p>
+        <p className='my-0'>{height} cm / {weight} kg</p>
         <div className="border border-gray rounded-custom py-3 my-3">
           <p className='my-0'>{address.address},</p>
           <p className='my-0'>{address.city}</p>
