@@ -3,7 +3,7 @@ import './App.css'
 import User from './components/user/User'
 import Error from './components/Error/Error'
 import { userProps } from './interface/interface'
-import Loader from './components/user/loader/Loader'
+import Loader from './components/loader/Loader'
 
 
 export default function App(): JSX.Element {
